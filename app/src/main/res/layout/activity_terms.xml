@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".terms"
+    >
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Terms&amp;Condition" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Description of the text"
+        android:text=" * Acceptance of Terms: Users must agree to the terms before using the app.\n
+* User Conduct: Outlines acceptable and unacceptable user behavior within the app.\n
+* Intellectual Property: Defines ownership of content, trademarks, and copyrights.\n
+* Privacy Policy: References the app's privacy policy, which should detail data collection, usage, and protection.\n
+* Disclaimer of Warranties: States that the app is provided 'as is' without warranties.\n
+* Limitation of Liability: Limits the app's liability for damages.\n
+* Termination: Describes conditions under which accounts can be terminated.\n
+* Governing Law: Specifies the jurisdiction governing disputes.\n
+Additional Clauses (Depending on the App)\n
+ * User Registration: Requirements for creating an account (age, email, password, etc.).\n
+ * Payment Terms: If applicable, details payment methods, refunds, and billing cycles.\n
+ * User-Generated Content: Guidelines for user-submitted content (ownership, rights, moderation).\n
+ * Third-Party Services: If integrating external services, outlines terms of use and data sharing.\n
+ * Indemnification: Protects the app owner from user-caused liabilities.\n
+ * Dispute Resolution: Specifies how disputes will be handled (e.g., arbitration, mediation).\n
+Example Terms and Conditions Excerpt\n
+User Conduct:\n
+ * You agree to use the app lawfully and in accordance with all applicable laws and regulations.\n
+ * You agree not to use the app for any illegal or unauthorized purpose, including but not limited to, hacking, spamming, or distributing malware.\n
+ * You agree not to interfere with or disrupt the app's functionality or the enjoyment of the app by other users.\n
+"
+        android:layout_marginTop="10dp"
+        />
+</LinearLayout>

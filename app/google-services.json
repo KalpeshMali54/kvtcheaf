@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "291187597879",
+    "firebase_url": "https://kvt-cheaf-default-rtdb.firebaseio.com",
+    "project_id": "kvt-cheaf",
+    "storage_bucket": "kvt-cheaf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291187597879:android:5f741d4d586a121852d5b2",
+        "android_client_info": {
+          "package_name": "com.example.kvtcheaf"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9zDkwz9eSOfa071M7pjSP2iYXqPqjf9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291187597879:android:3cb6b5c18501cb5b52d5b2",
+        "android_client_info": {
+          "package_name": "example.kvtcheaf"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9zDkwz9eSOfa071M7pjSP2iYXqPqjf9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
