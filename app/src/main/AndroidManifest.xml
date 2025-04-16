@@ -13,6 +13,11 @@
         android:theme="@style/Theme.KvtCheaf"
         tools:targetApi="33">
         <activity
+            android:name=".ChefDetailActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
             android:name=".chef7"
             android:exported="false" />
         <activity
@@ -36,9 +41,7 @@
         <activity
             android:name=".cheaf2"
             android:exported="false" />
-        <activity
-            android:name=".cheaf1"
-            android:exported="false" />
+
         <activity
             android:name=".contactUs"
             android:exported="false" />

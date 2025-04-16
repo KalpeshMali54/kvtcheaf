@@ -1,5 +1,6 @@
 package com.example.kvtcheaf
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -17,6 +18,7 @@ class loginActivity : AppCompatActivity() {
     lateinit var database:DatabaseReference
 
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -48,7 +50,8 @@ class loginActivity : AppCompatActivity() {
                     editText3.text?.clear()
                     database.child(ID).setValue(User).addOnSuccessListener {
                     Toast.makeText(this, "User Registered", Toast.LENGTH_SHORT).show()
-                    intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
+                        intent.putExtra("USER_ID", ID)
                     startActivity(intent)
 
                     }.addOnFailureListener { Toast.makeText(this, "falid", Toast.LENGTH_SHORT).show() }

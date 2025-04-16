@@ -1,0 +1,26 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    android:background="@drawable/greybackground"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/chefImage"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/cheaf1" />
+
+    <TextView
+        android:id="@+id/chefName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chef 1"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textStyle="bold" />
+</LinearLayout>

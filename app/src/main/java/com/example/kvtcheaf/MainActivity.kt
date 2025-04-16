@@ -1,24 +1,26 @@
 package com.example.kvtcheaf
 
-import android.R.layout
+
+import Chef
+import ChefAdapter
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.inputmethod.InputBinding
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet.Layout
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.crashlytics.internal.model.CrashlyticsReport.Session.User
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
-import kotlin.coroutines.CoroutineContext
+
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var user: User
+    private lateinit var recyclerView: RecyclerView
 
     companion object {
         const val KEY = "com.example.kvtcheaf.MainActivity.KEY"
@@ -29,64 +31,66 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main_contain)
 
-        val imageView = findViewById<ImageView>(R.id.imageView2)
-        val imageView1 = findViewById<ImageView>(R.id.imageView3)
-        val imageView2 = findViewById<ImageView>(R.id.imageView4)
-        val imageView3 = findViewById<ImageView>(R.id.imageView5)
-        val imageView4 = findViewById<ImageView>(R.id.imageView6)
-        val imageView5 = findViewById<ImageView>(R.id.imageView7)
-        val imageView6 = findViewById<ImageView>(R.id.imageView8)
 
-        imageView.setOnClickListener {
-            intent = Intent(this, cheaf1::class.java)
+        val userId = intent.getStringExtra("USER_ID")
+        if (userId != null) {
+            readdata(userId)
+        } else {
+            Toast.makeText(this, "User ID not found", Toast.LENGTH_SHORT).show()
+        }
+        val chefList = listOf(
+            Chef("Chef 1", R.drawable.cheaf1),
+            Chef("Chef 2", R.drawable.cheaf2),
+            Chef("Chef 3", R.drawable.cheaf3),
+            Chef("Chef 4", R.drawable.cheaf2),
+            Chef("Chef 5", R.drawable.cheaf3),
+            Chef("Chef 6", R.drawable.cheaf1),
+            Chef("Chef 7", R.drawable.cheaf2),
+            Chef("Chef 8", R.drawable.cheaf3)
+        )
+
+        recyclerView = findViewById(R.id.chefRecyclerView)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
+
+        recyclerView.adapter = ChefAdapter(chefList) { selectedChef ->
+            val intent = Intent(this, ChefDetailActivity::class.java)
+            intent.putExtra("CHEF_NAME", selectedChef.name)
+            intent.putExtra("CHEF_IMAGE", selectedChef.imageResId)
             startActivity(intent)
         }
-        imageView1.setOnClickListener {
-            intent = Intent(this, cheaf2::class.java)
-            startActivity(intent)
-        }
-        imageView2.setOnClickListener {
-            intent = Intent(this, chef3::class.java)
-            startActivity(intent)
-        }
-        imageView3.setOnClickListener {
-            intent = Intent(this, chef4::class.java)
-            startActivity(intent)
-        }
-        imageView4.setOnClickListener {
-            intent = Intent(this, chef5::class.java)
-            startActivity(intent)
-        }
-        imageView5.setOnClickListener {
-            intent = Intent(this, chef6::class.java)
-            startActivity(intent)
-        }
-        imageView6.setOnClickListener {
-            intent = Intent(this, chef7::class.java)
-            startActivity(intent)
-        }
+
+
     }
 
 
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.cart -> {
-                intent = Intent(this, addChart::class.java)
-                startActivity(intent)
+
+
+
+
+
+
+    private fun readdata(userId: String) {
+        databaseReference = FirebaseDatabase.getInstance().getReference("user")
+        databaseReference.child(userId).get().addOnSuccessListener {
+            if (it.exists()) {
+                val Name = findViewById<TextView>(R.id.name)
+                val Email = findViewById<TextView>(R.id.Email)
+
+                val userName = it.child("name").value.toString()
+                val userEmail = it.child("email").value.toString()
+
+                Name.text = userName
+                Email.text = userEmail
             }
-
-            R.id.myorder -> {
-                intent = Intent(this, order::class.java)
-                startActivity(intent)
-            }
-
-
-            else -> super.onOptionsItemSelected(item)
-        } as Boolean
+        }
     }
 
 }
+
+
+
+
 
 
 

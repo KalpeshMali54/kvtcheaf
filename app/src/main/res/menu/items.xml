@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-    android:id="@+id/dropdown_menu"
-    android:title="Menu"
+        android:id="@+id/dropdown_menu"
+        android:title="Menu"
         android:icon="@drawable/menu"/>
     <item
         android:icon="@drawable/cart"
@@ -10,8 +10,8 @@
         android:title="Cart"/>
     <item
         android:icon="@drawable/favorite"
-    android:id="@+id/favtourite"
-    android:title="Favtourite"/>
+        android:id="@+id/favtourite"
+        android:title="Favtourite"/>
     <item
         android:icon="@drawable/location"
         android:id="@+id/myorder"

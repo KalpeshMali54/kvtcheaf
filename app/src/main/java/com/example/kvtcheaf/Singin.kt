@@ -65,26 +65,26 @@ class Singin : AppCompatActivity() {
 
 
     }
-    private fun readData(id: String,password:String) {
+    private fun readData(id: String, password: String) {
         databaseReference = FirebaseDatabase.getInstance().getReference("user")
         databaseReference.child(id).get().addOnSuccessListener {
             if (it.exists()) {
-                databaseReference.child(password).get().addOnSuccessListener {
-                    if (it.exists()) {intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-
-                    } else {
-                        Toast.makeText(this,"incrrect password",Toast.LENGTH_SHORT)
-                    }
+                val storedPassword = it.child("password").value.toString()
+                if (storedPassword == password) {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("USER_ID", id)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this, "Incorrect password", Toast.LENGTH_SHORT).show()
                 }
-                }
-            else {
-                Toast.makeText(this, "user does not exist. plz signup your account first ", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "User does not exist. Please sign up first.", Toast.LENGTH_LONG).show()
             }
         }.addOnFailureListener {
-            Toast.makeText(this, "Faild Db Error", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Failed to connect to DB", Toast.LENGTH_SHORT).show()
         }
     }
+
 
 }
 
