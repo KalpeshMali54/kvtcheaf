@@ -1,5 +1,6 @@
 package com.example.kvtcheaf
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -35,7 +36,8 @@ class ChefDetailActivity : AppCompatActivity() {
 
         messageButton.setOnClickListener {
             Toast.makeText(this, "Messaging ${name}", Toast.LENGTH_SHORT).show()
-            // You can launch messaging/chat page here
+            val intent = Intent(this,order::class.java)
+            startActivity(intent)
         }
     }
 }

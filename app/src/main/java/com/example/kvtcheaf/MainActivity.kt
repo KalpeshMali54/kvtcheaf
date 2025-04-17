@@ -62,14 +62,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-
-
-
-
-
-
-
     private fun readdata(userId: String) {
         databaseReference = FirebaseDatabase.getInstance().getReference("user")
         databaseReference.child(userId).get().addOnSuccessListener {

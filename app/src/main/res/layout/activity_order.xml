@@ -19,8 +19,6 @@
         android:text="TextView"
         android:textSize="20dp"
         android:textStyle="bold"
-
-
         />
 
     <Button
@@ -31,7 +29,6 @@
         android:gravity="center"
         android:layout_marginTop="150dp"
         android:text="Goback"
-        android:textSize="10dp"
         android:textStyle="bold" />
 
 
