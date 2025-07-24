@@ -61,6 +61,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -71,6 +72,8 @@
         app:endIconMode="password_toggle"
         app:hintTextColor="#00BCD4"
         app:startIconDrawable="@drawable/baseline_password_24"
+        app:errorIconDrawable="@null"
+        app:boxStrokeErrorColor="#FF0404"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -79,7 +82,9 @@
             android:layout_height="60dp"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,17 +96,17 @@
         android:layout_marginLeft="15dp"
         android:textColorHint="@color/black"
         app:boxStrokeColor="#00BCD4"
-        app:endIconMode="password_toggle"
         app:hintTextColor="#00BCD4"
-        app:startIconDrawable="@drawable/baseline_password_24">
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/id_card_24px">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/eT4"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:hint="create_ID"
-            android:inputType="textPassword"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:inputType="textPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

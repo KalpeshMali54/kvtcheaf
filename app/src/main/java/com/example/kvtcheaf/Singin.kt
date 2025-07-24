@@ -19,6 +19,7 @@ import com.example.kvtcheaf.R.id.textView3
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import androidx.core.content.edit
 
 class Singin : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
@@ -71,6 +72,11 @@ class Singin : AppCompatActivity() {
             if (it.exists()) {
                 val storedPassword = it.child("password").value.toString()
                 if (storedPassword == password) {
+                    val sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE)
+                    sharedPreferences.edit().putBoolean("isLoggedIn", true)
+                        .putString("userId", id)
+                        .apply()
+
                     val intent = Intent(this, MainActivity::class.java)
                     intent.putExtra("USER_ID", id)
                     startActivity(intent)
