@@ -1,12 +1,13 @@
 
-import org.gradle.internal.impldep.com.amazonaws.PredefinedClientConfigurations.defaultConfig
-import org.gradle.internal.impldep.com.jcraft.jsch.ConfigRepository.defaultConfig
+
+import org.gradle.kotlin.dsl.implementation
 
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.google.firebase.crashlytics)
+    id("kotlin-kapt")
 }
 
 android {
@@ -57,13 +58,25 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.firebase.database)
     implementation(libs.androidx.monitor)
-    implementation(libs.firebase.crashlytics)
 
+    // Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:32.2.0"))
+
+    // Firebase libraries (managed by BoM)
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-database-ktx")
+    implementation(libs.firebase.crashlytics)
+    implementation("com.google.firebase:firebase-storage-ktx")
+
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
+
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
 
 

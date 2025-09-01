@@ -1,5 +1,5 @@
 [versions]
-agp = "8.11.1"
+agp = "8.12.2"
 kotlin = "1.9.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -15,6 +15,9 @@ monitor = "1.7.2"
 firebaseCrashlytics = "19.4.0"
 googleFirebaseCrashlytics = "3.0.2"
 playServicesAds = "23.6.0"
+firebaseStorageKtx = "22.0.0"
+firebaseFirestoreKtx = "26.0.0"
+firebaseAuthKtx = "24.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +32,9 @@ firebase-database = { group = "com.google.firebase", name = "firebase-database",
 androidx-monitor = { group = "androidx.test", name = "monitor", version.ref = "monitor" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebaseCrashlytics" }
 play-services-ads = { group = "com.google.android.gms", name = "play-services-ads", version.ref = "playServicesAds" }
+firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage-ktx", version.ref = "firebaseStorageKtx" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

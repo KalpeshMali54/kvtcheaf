@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <application
         android:allowBackup="true"
@@ -11,26 +13,15 @@
         android:roundIcon="@drawable/cheaf"
         android:supportsRtl="true"
         android:theme="@style/Theme.KvtCheaf"
-        tools:targetApi="33">
+        tools:targetApi="33" >
+        <activity
+            android:name=".ChefRegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Selection_page"
+            android:exported="false" />
         <activity
             android:name=".ChefDetailActivity"
-            android:exported="false">
-
-        </activity>
-        <activity
-            android:name=".chef7"
-            android:exported="false" />
-        <activity
-            android:name=".chef6"
-            android:exported="false" />
-        <activity
-            android:name=".chef5"
-            android:exported="false" />
-        <activity
-            android:name=".chef4"
-            android:exported="false" />
-        <activity
-            android:name=".chef3"
             android:exported="false" />
         <activity
             android:name=".BuyNOw"
@@ -39,24 +30,20 @@
             android:name=".addChart"
             android:exported="false" />
         <activity
-            android:name=".cheaf2"
-            android:exported="false" />
-
-        <activity
             android:name=".contactUs"
             android:exported="false" />
         <activity
             android:name=".terms"
             android:exported="false" />
         <activity
-            android:name=".Singin"
+            android:name=".login"
             android:exported="false" />
         <activity
             android:name=".loginActivity"
             android:exported="false" />
         <activity
             android:name=".StartActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

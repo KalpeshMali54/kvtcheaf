@@ -3,27 +3,23 @@ package com.example.kvtcheaf
 
 import Chef
 import ChefAdapter
-import android.content.ClipData
 import android.content.Intent
-import android.graphics.drawable.Drawable
-import android.media.RouteListingPreference
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.crashlytics.internal.model.CrashlyticsReport.Session.User
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseAuth
 
 
 
@@ -144,9 +140,8 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                     R.id.logout-> {
-                        val sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE)
-                        sharedPreferences.edit().clear().apply()
-                        val intent = Intent(this, Singin::class.java)
+                        FirebaseAuth.getInstance().signOut()
+                        val intent = Intent(this, login::class.java)
                         startActivity(intent)
                         finish()
                         true

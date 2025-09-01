@@ -4,77 +4,89 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@drawable/signin1"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="Singin">
+    tools:context=".login">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/top_curve">
+
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Welcome,\n Login to continue"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="@android:color/white"
+            android:gravity="center" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="350dp"
-        android:orientation="vertical">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="#00BCD4"
-            app:endIconMode="password_toggle"
-
-            app:hintTextColor="#00BCD4"
-            app:startIconDrawable="@drawable/baseline_person_24">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/signin"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="User_ID"
-                android:textColor="@color/black"
-                android:inputType="textPassword"
-                android:textColorHint="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="#00BCD4"
-            app:endIconMode="password_toggle"
-
-            app:hintTextColor="#00BCD4"
-            app:startIconDrawable="@drawable/baseline_password_24">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/pass"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="Password"
-                android:textColor="@color/black"
-                android:inputType="textPassword"
-                android:textColorHint="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="15dp"
-            android:text="Accepted T&amp;C"
-            android:textColor="@color/black" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btn5"
-        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:backgroundTint="#00BCD4"
-        android:text="Signin"
-        android:textColor="@color/black" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:padding="10dp"
+            app:startIconDrawable="@android:drawable/ic_dialog_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:padding="10dp"
+            app:startIconDrawable="@drawable/ic_lock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/eT3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="#E9010B1B"
+            android:padding="10dp"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Signin Button -->
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="If not have an account? Sign up"
+            android:padding="10dp"
+            android:backgroundTint="@color/teal_700"
+            android:textColor="@android:color/white"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -85,6 +97,8 @@
         android:layout_marginTop="100dp"
         android:textColor="@color/black"
         android:text="Terms&amp;Condition" />
+    </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

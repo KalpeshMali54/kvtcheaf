@@ -3,12 +3,15 @@ package com.example.kvtcheaf
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
 
 class StartActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -16,23 +19,23 @@ class StartActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        Handler().postDelayed({
-            val sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE)
-            val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+        auth = FirebaseAuth.getInstance()
 
-            val intent = if (isLoggedIn) {
-                val userId = sharedPreferences.getString("userId", null)
-                Intent(this, MainActivity::class.java).apply {
-                    putExtra("USER_ID", userId)
-                }
+        // Add a small delay for splash effect
+        Handler(Looper.getMainLooper()).postDelayed({
+
+            val currentUser = auth.currentUser
+
+            if (currentUser != null) {
+                // User already logged in → go to MainActivity
+                startActivity(Intent(this, MainActivity::class.java))
             } else {
-                Intent(this, loginActivity::class.java)  // Make sure this is capital "L"
+                // No user logged in → go to Login screen
+                startActivity(Intent(this, Selection_page::class.java))
             }
 
-            startActivity(intent)
-            finish()
+            finish() // close splash so user can't return here
 
-        },2000)
-
+        }, 2000) // 2 second splash
     }
 }
